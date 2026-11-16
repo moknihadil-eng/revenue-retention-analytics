@@ -1,0 +1,21 @@
+{
+    "sqltools.connections": [
+        {
+            "name": "DuckDB",
+            "accessMode": "Read Only",
+            "duckdbOptions": {
+                "enable_external_access": true,
+                "autoinstall_known_extensions": true,
+                "autoload_known_extensions": true,
+                "allow_community_extensions": true
+            },
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "database": "data/processed/retail.duckdb"
+        }
+    ],
+    "sqltools.useNodeRuntime": true,
+    "files.associations": {
+        "*.sql": "sql"
+    }
+}

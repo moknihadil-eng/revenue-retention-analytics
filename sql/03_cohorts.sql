@@ -3,7 +3,7 @@
 WITH firsts AS (
  SELECT customer_id, min(order_date) AS first_date FROM orders GROUP BY customer_id
 ), outcomes AS (
- SELECT f.customer_id, f.first_date, date_trunc('month', f.first_date)::DATE AS cohort,
+ SELECT f.customer_id, f.first_date, CAST(date_trunc('month', f.first_date) AS DATE) AS cohort,
  h.days, max(CASE WHEN o.order_number>=2 AND o.order_date<=f.first_date+h.days*INTERVAL '1 day' THEN 1 ELSE 0 END) AS returned
  FROM firsts f CROSS JOIN (VALUES (30),(60),(90)) h(days)
  JOIN orders o USING(customer_id)

@@ -66,6 +66,10 @@ The first chart answers the main question. Only second and subsequent invoices e
 
 The cohort chart shows cumulative second-purchase probability within elapsed days of first observed order. It omits cells without complete monthly-cohort follow-up. Grey is unknown, not zero. December 2010 includes existing clients whose earlier history is unavailable. Compare common eligible cohorts across horizons; do not treat a higher 90-day rate than 30-day rate as improvement in acquisition quality.
 
+## Query from VS Code
+
+Install **SQLTools** (`mtxr.sqltools`) and **DuckDB for SQLTools** (`MaksimPeterburgskiy.duckdb-for-sqltools`). After running the Python pipeline once, use **SQLTools: Connect** and select the existing **DuckDB** connection defined in `.vscode/settings.json`; no new connection is needed. It opens `data/processed/retail.duckdb` in read-only mode using a workspace-relative path. Select a query and run **SQLTools Connection: Run Query**. For example, `SELECT COUNT(*) FROM orders;` should return **18,491**. Disconnect SQLTools before rebuilding the database with Python. SQL files use the SQL language mode rather than PL/SQL.
+
 ## Reproducible assets
 
 - `analysis/run.py`: download, pandas preparation, SQL execution, validation, plots and summary.
