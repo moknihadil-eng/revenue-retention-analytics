@@ -4,6 +4,33 @@ A reproducible consulting-style portfolio project using **Python, pandas, SQL, D
 
 **Business question:** What share of sales comes from second and subsequent orders, which customer groups come back, and which actions do the data support?
 
+[Executive summary](reports/executive-summary.md) ? [SQL models](sql) ? [Methodology](docs/methodology.md) ? [Data dictionary](docs/data-dictionary.md)
+
+## At a glance
+
+| Evidence | Observed result |
+|---|---|
+| Scope | 18,491 orders and 4,337 identified customers from UCI Online Retail |
+| Sales after the first observed order | **78.88%** of positive sales ? distinct from all sales made by repeat buyers |
+| Mature-cohort 90-day repeat rate | **47.45%** pooled rate, with complete follow-up required |
+| Delivery | Reproducible Python/SQL pipeline, charts, CSV outputs and business recommendations |
+
+The figures describe the historical dataset; they are not forecasts or measured business uplift.
+
+![Revenue and retention dashboard overview](reports/figures/dashboard.png)
+
+## Repository guide
+
+```text
+analysis/   Pipeline and adversarial SQL tests
+sql/        Order-grain models, revenue definitions, cohorts and RFM
+reports/    Executive summary, computed tables and figures
+docs/       Data dictionary, methodology and verification notes
+```
+
+<details>
+<summary><strong>Run locally on Windows (PowerShell)</strong></summary>
+
 ## Run on Windows (PowerShell)
 
 Tested with Python 3.14.6 on Windows. Install Python 3.14 and Git, then open PowerShell in the repository root (the folder containing this README). No PowerShell activation or database server is required.
@@ -19,6 +46,11 @@ python3.14.exe -m venv .venv
 If your installation provides the Python launcher instead, use `py -3.14 -m venv .venv` for the first command. Both forms create the same local environment. Every subsequent command runs from the repository root.
 
 The script downloads the original UCI workbook automatically on first run and reuses it afterwards. If download is blocked, [download the UCI ZIP](https://archive.ics.uci.edu/static/public/352/online+retail.zip), extract **Online Retail.xlsx** into `data/raw/`, and rerun. Do not rename the workbook. No Kaggle account required. Dependencies require internet on initial installation.
+
+</details>
+
+<details>
+<summary><strong>Detailed findings, charts and interpretation</strong></summary>
 
 ## Results and visual story
 
@@ -65,6 +97,8 @@ The original 78.9% chart is preserved. The adjacent comparison also includes all
 The first chart answers the main question. Only second and subsequent invoices enter the repeat numerator; the first invoice of a future repeater remains in first-order sales. Revenue is positive sales among identified customers, **before credits**, not total-store net revenue.
 
 The cohort chart shows cumulative second-purchase probability within elapsed days of first observed order. It omits cells without complete monthly-cohort follow-up. Grey is unknown, not zero. December 2010 includes existing clients whose earlier history is unavailable. Compare common eligible cohorts across horizons; do not treat a higher 90-day rate than 30-day rate as improvement in acquisition quality.
+
+</details>
 
 ## Query from VS Code
 
