@@ -4,14 +4,14 @@ A reproducible consulting-style portfolio project using **Python, pandas, SQL, D
 
 **Business question:** What share of sales comes from second and subsequent orders, which customer groups come back, and which actions do the data support?
 
-[Executive summary](reports/executive-summary.md) ? [SQL models](sql) ? [Methodology](docs/methodology.md) ? [Data dictionary](docs/data-dictionary.md)
+[Executive summary](reports/executive-summary.md) | [SQL models](sql) | [Methodology](docs/methodology.md) | [Data dictionary](docs/data-dictionary.md)
 
 ## At a glance
 
 | Evidence | Observed result |
 |---|---|
 | Scope | 18,491 orders and 4,337 identified customers from UCI Online Retail |
-| Sales after the first observed order | **78.88%** of positive sales ? distinct from all sales made by repeat buyers |
+| Sales after the first observed order | **78.88%** of positive sales - distinct from all sales made by repeat buyers |
 | Mature-cohort 90-day repeat rate | **47.45%** pooled rate, with complete follow-up required |
 | Delivery | Reproducible Python/SQL pipeline, charts, CSV outputs and business recommendations |
 
